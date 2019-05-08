@@ -1,31 +1,36 @@
 <html>
 <head>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .imgbox {
-            width: 100vw;
-	    height: 100vh;
-            display: table-cell;
-            vertical-align: center;
-            text-align: center;
-        }
-        .center-fit {
-            max-width: 100%;
-            height: auto;
-            max-height: 100%;
-        }
-    </style>
 </head>
-<body style="background-color:black">
-<div class="imgbox">
-	<img id="zane" class="center-fit">
+<body style="background-color:black;margin:0;padding:0;">
+<div style="display:table-cell;height:100vh;width:100vw;vertical-align:middle">
+<img id="zane" style="margin:auto;display:block;">
 </div>
 </body>
 
 <script>
 var num = Math.floor((Math.random() * 27) + 1)
-document.getElementById("zane").src = "pics/zane" + num.toString() + ".jpg"
+var zane = document.getElementById("zane")
+zane.src = "pics/zane" + num.toString() + ".jpg"
+
+var screenAspectRatio = window.innerWidth / window.innerHeight
+
+function paintImg(arg) {
+    picAspectRatio = arg
+if (picAspectRatio > screenAspectRatio) {
+    console.log("pic more wide than screen.")
+    zane.style.width = "100vw"
+    zane.style.height = "auto"
+} else {
+    console.log("screen more wide than pic.")
+    zane.style.height = "100vh"
+    zane.style.width = "auto"
+} 
+}
+
+var newImg = new Image();
+newImg.onload = function() {
+    paintImg(newImg.width / newImg.height)
+}
+newImg.src = zane.src
+
 </script>
