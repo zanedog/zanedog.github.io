@@ -3,7 +3,7 @@
 </head>
 <body style="background-color:black;margin:0;padding:0;">
 <div style="display:table-cell;height:100vh;width:100vw;vertical-align:middle">
-<img id="zane" style="margin:auto;display:block;">
+<img id="zane" style="margin:auto;display:none;">
 </div>
 </body>
 
@@ -17,11 +17,9 @@ var screenAspectRatio = window.innerWidth / window.innerHeight
 function paintImg(arg) {
     picAspectRatio = arg
 if (picAspectRatio > screenAspectRatio) {
-    console.log("pic more wide than screen.")
     zane.style.width = "100vw"
     zane.style.height = "auto"
 } else {
-    console.log("screen more wide than pic.")
     zane.style.height = "100vh"
     zane.style.width = "auto"
 } 
@@ -30,6 +28,7 @@ if (picAspectRatio > screenAspectRatio) {
 var newImg = new Image();
 newImg.onload = function() {
     paintImg(newImg.width / newImg.height)
+    zane.style.display = "block"
 }
 newImg.src = zane.src
 
