@@ -12,15 +12,12 @@
   </style>
 </head>
 <body>
-<a id="post-link" target="_blank">
-    <img id="img-src">
-</a>
+<img id="img-src">
 <p align="center">this site is run by a bot that mirrors the freshest new memes from <a href="https://www.instagram.com/memes_for_paideia/" target="_blank">@memes_for_paideia</a></p>
 
-<script src="https://apush.us/paideia/post.js"></script>
 <script>
-    document.getElementById('post-link').href = 'https://www.instagram.com/p/' + post_id;
-    document.getElementById('img-src').src = post_url;
+  const randomStr = Math.random().toString().substring(2);
+  document.getElementById('img-src').src = 'https://apush.us/paideia/post.jpg?rand=' + randomStr;
 </script>
 
 </body>
