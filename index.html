@@ -17,14 +17,17 @@
     <title>good pup</title>
 </head>
 
-<body style="display:grid; height:100%; margin:0">
+<body onclick="newpic()" style="background-color: 0; display:grid; height:100%; margin:0">
     <img style="max-width:100%; max-height:100vh; margin:auto">
 </body>
 
 <script>
-    const num = Math.floor(Math.random() * 58);
-    const zane = document.getElementsByTagName("img")[0];
-    zane.src = "pics/zane" + num.toString() + ".jpeg";
+    var zane = document.getElementsByTagName("img")[0];
+    function newpic() {
+        const num = Math.floor(Math.random() * 58);
+        zane.src = "pics/zane" + num.toString() + ".jpeg";
+    }
+    newpic();
 </script>
 
 </html>
