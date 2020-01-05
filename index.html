@@ -15,18 +15,50 @@
 
 <head>
     <title>good pup</title>
+    <style>
+        img {
+            max-width:100%;
+            max-height:100vh;
+            margin:auto
+        }
+        .see {
+            display: block
+        }
+        .hide {
+            display: none
+        }
+    </style>
 </head>
 
 <body onclick="newpic()" style="background-color: 0; display:grid; height:100%; margin:0">
-    <img style="max-width:100%; max-height:100vh; margin:auto">
+    <img id="zane1">
+    <img id="zane2">
 </body>
 
 <script>
-    var zane = document.getElementsByTagName("img")[0];
+    var zane1 = document.getElementById("zane1");
+    var zane2 = document.getElementById("zane2");
+    var backupZane = true;
+
+    function randomPic() {
+        const num = Math.floor(Math.random() * 58);
+        return "pics/zane" + num.toString() + ".jpeg";
+    }
+
     function newpic() {
         const num = Math.floor(Math.random() * 58);
-        zane.src = "pics/zane" + num.toString() + ".jpeg";
+        if (backupZane) {
+            zane2.className = 'hide'
+            zane1.className = 'see'
+            zane2.src = randomPic()
+        } else {
+            zane1.className = 'hide'
+            zane2.className = 'see'
+            zane1.src = randomPic()
+        }
+        backupZane = !backupZane;
     }
+    zane1.src = randomPic()
     newpic();
 </script>
 
